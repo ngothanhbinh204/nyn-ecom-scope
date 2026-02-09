@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký & Đăng nhập</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Style Variables --- */
+        :root {
+            --primary-red: #e53935;
+            --primary-blue: #007bff;
+        }
+
+        /* --- Main Wrapper for Forms --- */
+        .auth-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* --- Common Form Container Style --- */
+        .auth-form-container {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        /* --- Typography --- */
+        .auth-form-container h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-form-container h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .auth-form-container p {
+            line-height: 1.6;
+        }
+
+        .auth-form-container .text-center {
+            text-align: center;
+        }
+
+        .auth-form-container .text-light {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        /* --- Social Login --- */
+        .auth-form-container .social-login {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .auth-form-container .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            background-color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .auth-form-container .social-btn:hover {
+            background-color: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .auth-form-container .social-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* --- Separator --- */
+        .auth-form-container .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #6c757d;
+            margin: 2rem 0;
+        }
+
+        .auth-form-container .separator::before,
+        .auth-form-container .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .auth-form-container .separator:not(:empty)::before {
+            margin-right: 1em;
+        }
+
+        .auth-form-container .separator:not(:empty)::after {
+            margin-left: 1em;
+        }
+
+        /* --- Form Grid & Elements --- */
+        .auth-form-container .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Grid override for login form */
+        .form-login .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .auth-form-container .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .auth-form-container .form-label {
+            font-weight: 500;
+        }
+
+        .auth-form-container .form-label .optional {
+            font-weight: 400;
+            color: #6c757d;
+        }
+
+        .auth-form-container .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-form-container .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .auth-form-container .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .auth-form-container .form-control:focus {
+            outline: none;
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .auth-form-container .input-icon {
+            position: absolute;
+            right: 1rem;
+            color: #6c757d;
+            cursor: pointer;
+        }
+        
+        .auth-form-container .input-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .auth-form-container .form-text {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .auth-form-container .form-text svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* --- Links & Info Boxes --- */
+        .auth-form-container .info-box {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d7ff;
+            color: #004085;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .auth-form-container .forgot-password-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .auth-form-container .forgot-password-link:hover {
+            text-decoration: underline;
+        }
+        
+        .auth-form-container .switch-form-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .auth-form-container .switch-form-link a {
+            color: var(--primary-red);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .auth-form-container .switch-form-link a:hover {
+            text-decoration: underline;
+        }
+
+        .auth-form-container .terms {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .auth-form-container .terms a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-form-container .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Action Buttons --- */
+        .auth-form-container .form-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-top: 1px solid #eee;
+            padding-top: 2rem;
+        }
+        
+        /* Actions override for login form */
+        .form-login .form-actions {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 1.5rem;
+        }
+
+        .auth-form-container .btn {
+            padding: 0.85rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            width: 100%;
+        }
+        
+        .auth-form-container .btn:hover {
+            opacity: 0.9;
+        }
+
+        .auth-form-container .btn-primary {
+            background-color: var(--primary-red);
+            color: #ffffff;
+        }
+
+        .auth-form-container .btn-outline {
+            background-color: #ffffff;
+            color: #212529;
+            border-color: #ced4da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .auth-form-container {
+                padding: 1.5rem;
+            }
+            .auth-form-container .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .auth-form-container .social-login {
+                flex-direction: column;
+            }
+            .auth-form-container .social-btn {
+                max-width: 100%;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .form-register .form-actions {
+                flex-direction: row-reverse;
+            }
+            .form-register .btn {
+                flex: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="auth-wrapper">
+        <!-- Registration Form -->
+        <div class="auth-form-container form-register">
+            <h1>Đăng ký thành viên</h1>
+            <p class="text-center text-light">Đăng ký bằng tài khoản mạng xã hội</p>
+
+            <div class="social-login">
+                <button class="social-btn">
+                    <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.222,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C42.022,35.244,44,30.036,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn">
+                    <svg viewBox="0 0 512 512"><path fill="#0068ff" d="M498.8,172.6H338.4V13.2C338.4,6,332.4,0,325.2,0H186.8c-7.2,0-13.2,6-13.2,13.2v159.4H13.2C6,172.6,0,178.6,0,185.8v140.4c0,7.2,6,13.2,13.2,13.2h159.4v159.4c0,7.2,6,13.2,13.2,13.2h138.4c7.2,0,13.2-6,13.2-13.2V339.4h160.4c7.2,0,13.2-6,13.2-13.2V185.8C512,178.6,506,172.6,498.8,172.6z M200,313.2c-29.8,0-54-24.2-54-54s24.2-54,54-54s54,24.2,54,54S229.8,313.2,200,313.2z M312,313.2c-29.8,0-54-24.2-54-54s24.2-54,54-54s54,24.2,54,54S341.8,313.2,312,313.2z"></path></svg>
+                    <span>Zalo</span>
+                </button>
+            </div>
+            <div class="separator">Hoặc điền thông tin sau</div>
+            <form action="#" method="POST">
+                <section>
+                    <h2>Thông tin cá nhân</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Họ và tên</label>
+                            <input type="text" id="full-name" class="form-control" placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="form-label">Ngày sinh</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="dob" class="form-control" placeholder="dd/mm/yyyy">
+                                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM1 6.5h14V14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6.5z"/></svg></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone-reg" class="form-label">Số điện thoại</label>
+                            <input type="tel" id="phone-reg" class="form-control" placeholder="Nhập số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email <span class="optional">(Không bắt buộc)</span></label>
+                            <input type="email" id="email" class="form-control" placeholder="Nhập email">
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Tạo mật khẩu</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="password-reg" class="form-label">Mật khẩu</label>
+                            <div class="input-wrapper">
+                                <input type="password" id="password-reg" class="form-control" placeholder="Nhập mật khẩu của bạn">
+                                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password" class="form-label">Nhập lại mật khẩu</label>
+                             <div class="input-wrapper">
+                                <input type="password" id="confirm-password" class="form-control" placeholder="Nhập lại mật khẩu của bạn">
+                                <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg></span>
+                            </div>
+                        </div>
+                    </div>
+                     <p class="form-text"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.055.482.172.55.385.068.213.02.433-.154.632-.174.2-.42.32-.673.379h-.034c-.274-.055-.52-.172-.673-.379-.174-.199-.222-.419-.154-.632.068-.213.256-.33.55-.385l.45-.083-.082-.38-2.29-.287A1.5 1.5 0 0 0 5 7.938V11.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V7.938a1.5 1.5 0 0 0-1.07-.95z"/></svg>Mật khẩu tối thiểu 6 ký tự, có ít nhất 1 chữ số và 1 số</p>
+                </section>
+                <p class="terms">Bằng việc Đăng ký, bạn đã đọc và đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật của CellphoneS</a>.</p>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Hoàn tất đăng ký</button>
+                    <button type="button" class="btn btn-outline"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>Quay lại đăng nhập</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="auth-form-container form-login">
+            <h1>Đăng nhập SMEMBER</h1>
+            <form action="#" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="phone-login" class="form-label">Số điện thoại</label>
+                        <input type="tel" id="phone-login" class="form-control" placeholder="Nhập số điện thoại của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="password-login" class="form-label">Mật khẩu</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password-login" class="form-control" placeholder="Nhập mật khẩu của bạn">
+                            <span class="input-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    Trải nghiệm đăng nhập liền mạch giữa CellphoneS và Điện Thoại Vui, ưu tiên dùng tài khoản CellphoneS (nếu có)
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                </div>
+                <a href="#" class="forgot-password-link">Quên mật khẩu?</a>
+            </form>
+            <div class="separator">Hoặc đăng nhập bằng</div>
+            <div class="social-login">
+                 <button class="social-btn">
+                    <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.222,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C42.022,35.244,44,30.036,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn">
+                    <svg viewBox="0 0 512 512"><path fill="#0068ff" d="M498.8,172.6H338.4V13.2C338.4,6,332.4,0,325.2,0H186.8c-7.2,0-13.2,6-13.2,13.2v159.4H13.2C6,172.6,0,178.6,0,185.8v140.4c0,7.2,6,13.2,13.2,13.2h159.4v159.4c0,7.2,6,13.2,13.2,13.2h138.4c7.2,0,13.2-6,13.2-13.2V339.4h160.4c7.2,0,13.2-6,13.2-13.2V185.8C512,178.6,506,172.6,498.8,172.6z M200,313.2c-29.8,0-54-24.2-54-54s24.2-54,54-54s54,24.2,54,54S229.8,313.2,200,313.2z M312,313.2c-29.8,0-54-24.2-54-54s24.2-54,54-54s54,24.2,54,54S341.8,313.2,312,313.2z"></path></svg>
+                    <span>Zalo</span>
+                </button>
+            </div>
+            <p class="switch-form-link">
+                Bạn chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

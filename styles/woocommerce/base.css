@@ -1,0 +1,28 @@
+*,
+:after,
+:before {
+	box-sizing: border-box;
+	border: 0 solid #e5e7eb;
+}
+
+menu,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font-weight: inherit;
+	font-size: 100%;
+	line-height: inherit;
+	font-family: inherit;
+}

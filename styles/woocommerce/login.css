@@ -1,0 +1,186 @@
+/* ==============================================
+  General Page and Container Styles
+  ==============================================
+*/
+.section-page-login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 60vh;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+.section-page-login .container {
+	width: 100%;
+}
+
+
+.section-page-login .section-wrap-box-white {
+	width: 100%;
+	max-width: 30rem;
+	margin: 0 auto;
+	
+}
+
+/* ==============================================
+  Form Wrapper Styles
+  ==============================================
+*/
+.section-page-login .wrap-box-form {
+	background-color: var(--color-secondary);
+	border-radius: 16px;
+	padding: 2.5rem;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	width: 100%;
+}
+
+/* ==============================================
+  Form Title Styles
+  ==============================================
+*/
+.section-page-login .form-title {
+	color: var(--color-primary);
+	font-size: 2rem;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+/* ==============================================
+  Form Element Styles
+  ==============================================
+*/
+.section-page-login .form-row {
+	margin-bottom: 1.5rem;
+	width: 100% !important;
+	float: none !important;
+	clear: both;
+	display: flex;
+	flex-direction: column;
+}
+
+.section-page-login .form-row label {
+	font-weight: 600;
+	margin-bottom: 0.5208333333rem;
+	color: #333;
+	font-size: 0.95rem;
+}
+
+.section-page-login .form-row .required {
+	color: var(--color-primary);
+}
+
+.section-page-login .wrap-form .input-text {
+	width: 100%;
+	padding: 0.9rem 1rem;
+	border: 1px solid #cfcfd3;
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: border-color 0.3s, box-shadow 0.3s;
+	box-sizing: border-box;
+	/* Ensures padding doesn't affect width */
+}
+
+.section-page-login .input-text:focus {
+	outline: none;
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 3px rgba(183, 33, 38, 0.1);
+}
+
+/* Hide the 'remember me' checkbox as it's not in the target design */
+.section-page-login .woocommerce-form-login__rememberme {
+	display: none;
+}
+
+/* ==============================================
+  Submit Button Styles
+  ==============================================
+*/
+.section-page-login .woocommerce-button.button {
+	background-color: var(--color-primary);
+	color: var(--color-secondary);
+	border: none;
+	width: 100%;
+	padding: 1rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+	height: clamp(48px, 2.5rem, 2.5rem);
+}
+
+.section-page-login .woocommerce-button.button:hover {
+	background-color: #9e1c21;
+	/* A darker shade of primary for hover */
+}
+
+/* ==============================================
+  Link Styles (Register / Forgot Password)
+  ==============================================
+*/
+.section-page-login .flex {
+	display: flex;
+	flex-direction: column;
+	/* Stack the links vertically */
+	align-items: center;
+	gap: 1rem;
+	/* Space between the links */
+	text-align: center;
+}
+
+.section-page-login .lost_password,
+.section-page-login .text-link {
+	margin: 0;
+	padding: 0;
+}
+
+.section-page-login a {
+	text-decoration: none;
+	font-weight: 500;
+	transition: opacity 0.3s;
+}
+
+.section-page-login a:hover {
+	opacity: 0.8;
+}
+
+/* Style for "Quên mật khẩu?" link */
+.section-page-login .lost_password a {
+	color: var(--color-link);
+	font-size: 1rem;
+}
+
+/* Style for "Đăng ký" link */
+.section-page-login .text-link {
+	color: #666;
+	/* Text color for "Bạn chưa có tài khoản?" */
+}
+
+.section-page-login .text-link a {
+	color: var(--color-primary);
+	font-weight: 600;
+}
+
+/* Hide unnecessary elements from the original form */
+.section-page-login .clear,
+.section-page-login input[type="hidden"] {
+	display: none;
+}
+
+.section-page-login .lost_password a {
+	text-align: center;
+	display: block;
+}
+
+.section-page-login .register {
+	text-align: center;
+}
+.section-page-login .lost_password a,
+.section-page-login .register a {
+	color: #3b82f6;
+	font-weight: bold;
+}

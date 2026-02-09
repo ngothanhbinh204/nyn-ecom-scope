@@ -1,0 +1,212 @@
+[
+  {
+    "key": "group_footer_settings",
+    "title": "Footer Settings",
+    "fields": [
+      {
+        "key": "tab_footer_info",
+        "label": "📌 Company Info",
+        "type": "tab"
+      },
+      {
+        "key": "field_footer_info_enable",
+        "name": "footer_info_enable",
+        "type": "true_false",
+        "default_value": 1,
+        "ui": 1
+      },
+      {
+        "key": "field_footer_company_title",
+        "label": "Company Title",
+        "name": "footer_company_title",
+        "type": "text"
+      },
+      {
+        "key": "field_footer_address_list",
+        "label": "Address List",
+        "name": "footer_address_list",
+        "type": "repeater",
+        "layout": "row",
+        "button_label": "Thêm thông tin",
+        "collapsed": "field_footer_address_label",
+        "sub_fields": [
+          {
+            "key": "field_footer_address_label",
+            "label": "Label",
+            "name": "label",
+            "type": "text",
+            "instructions": "Ví dụ: Địa chỉ:, Phone:, Fax:"
+          },
+          {
+            "key": "field_footer_address_content",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "media_upload": 0
+          },
+          {
+            "key": "field_footer_address_map_link",
+            "label": "Link Bản đồ (Nếu có)",
+            "name": "map_link",
+            "type": "link",
+            "return_format": "array"
+          }
+        ]
+      },
+      {
+        "key": "field_footer_copyright",
+        "label": "Copyright",
+        "name": "footer_copyright",
+        "type": "textarea",
+        "rows": 3,
+        "new_lines": "br"
+      },
+      {
+        "key": "tab_footer_links",
+        "label": "📌 Links Sections",
+        "type": "tab"
+      },
+      {
+        "key": "field_footer_links_enable",
+        "name": "footer_links_enable",
+        "type": "true_false",
+        "default_value": 1,
+        "ui": 1
+      },
+       {
+        "key": "field_footer_quick_links_title",
+        "label": "Quick Links Title",
+        "name": "footer_quick_links_title",
+        "type": "text",
+        "default_value": "Liên Kết Nhanh"
+      },
+      {
+        "key": "field_footer_socials_title",
+        "label": "Socials Title",
+        "name": "footer_socials_title",
+        "type": "text",
+        "default_value": "Mạng Xã Hội"
+      },
+       {
+        "key": "field_footer_socials_list",
+        "label": "Social Links List",
+        "name": "footer_socials_list",
+        "type": "repeater",
+        "layout": "table",
+        "button_label": "Thêm Social Link",
+        "sub_fields": [
+          {
+            "key": "field_footer_social_name",
+            "label": "Name",
+            "name": "name",
+            "type": "text"
+          },
+           {
+            "key": "field_footer_social_url",
+            "label": "URL",
+            "name": "url",
+            "type": "url"
+          }
+        ]
+      },
+      {
+        "key": "tab_footer_cta",
+        "label": "📌 Fixed CTA",
+        "type": "tab"
+      },
+      {
+        "key": "field_footer_cta_enable",
+        "name": "footer_cta_enable",
+        "type": "true_false",
+        "default_value": 1,
+        "ui": 1
+      },
+      {
+        "key": "field_footer_hotline",
+        "label": "Hotline",
+        "name": "footer_hotline",
+        "type": "link",
+        "return_format": "array"
+      },
+      {
+        "key": "field_footer_fixed_socials",
+        "label": "Fixed Social Icons",
+        "name": "footer_fixed_socials",
+        "type": "repeater",
+        "layout": "table",
+        "button_label": "Thêm Icon",
+        "sub_fields": [
+            {
+                "key": "field_691e91f5bfa4e",
+                "label": "Icon",
+                "name": "icon",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "Copy code của icon tại https://fontawesome.com/",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "location-dot": "Location",
+                    "phone": "Phone",
+                    "envelope": "Mail"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0,
+                "parent_repeater": "field_691e91eabfa4d"
+            },
+            {
+                "key": "field_691e9218bfa4f",
+                "label": "Content",
+                "name": "content",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0,
+                "parent_repeater": "field_691e91eabfa4d"
+            }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "theme-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+  }
+]

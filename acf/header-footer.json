@@ -1,0 +1,181 @@
+[
+  {
+    "key": "group_65ab456789abc",
+    "title": "Header & Footer Settings",
+    "fields": [
+      {
+        "key": "field_65ab456789abd",
+        "label": "Header Settings",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_header_top_text",
+        "label": "Header Top Text",
+        "name": "header_top_text",
+        "type": "text",
+        "default_value": "Ưu đãi cuối năm – Áp dụng trong thời gian giới hạn"
+      },
+      {
+        "key": "field_65ab456789abe",
+        "label": "Footer Settings",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_footer_logo",
+        "label": "Footer Logo",
+        "name": "footer_logo",
+        "type": "image",
+        "return_format": "array",
+        "preview_size": "medium"
+      },
+      {
+        "key": "field_footer_slogan",
+        "label": "Footer Slogan",
+        "name": "footer_slogan",
+        "type": "text",
+        "default_value": "Lối sống là dấu ấn cá nhân."
+      },
+      {
+        "key": "field_footer_col_2_title",
+        "label": "Footer Column 2 Title",
+        "name": "footer_col_2_title",
+        "type": "text",
+        "default_value": "Liên hệ"
+      },
+      {
+        "key": "field_footer_col_3_title",
+        "label": "Footer Column 3 Title",
+        "name": "footer_col_3_title",
+        "type": "text",
+        "default_value": "Liên hệ"
+      },
+      {
+        "key": "field_footer_col_4_title",
+        "label": "Footer Column 4 Title",
+        "name": "footer_col_4_title",
+        "type": "text",
+        "default_value": "Liên hệ"
+      },
+      {
+        "key": "field_footer_col_4_desc",
+        "label": "Footer Column 4 Description",
+        "name": "footer_col_4_desc",
+        "type": "textarea",
+        "default_value": "Cùng NYN xây dựng một cộng đồng đề cao chất lượng, trải nghiệm được chọn lọc và cảm hứng sống hiện đại."
+      },
+      {
+        "key": "field_footer_socials",
+        "label": "Footer Socials",
+        "name": "footer_socials",
+        "type": "repeater",
+        "layout": "table",
+        "sub_fields": [
+          {
+            "key": "field_icon_select",
+            "label": "Icon",
+            "name": "icon",
+            "type": "select",
+            "choices": {
+              "fa-facebook-f": "Facebook",
+              "fa-instagram": "Instagram",
+              "fa-youtube": "Youtube",
+              "fa-tiktok": "Tiktok",
+              "fa-linkedin-in": "Linkedin",
+              "fa-twitter": "Twitter"
+            },
+            "default_value": "fa-facebook-f",
+            "return_format": "value"
+          },
+          {
+            "key": "field_social_link",
+            "label": "Link",
+            "name": "link",
+            "type": "link"
+          }
+        ]
+      },
+      {
+        "key": "field_footer_copyright",
+        "label": "Footer Copyright",
+        "name": "footer_copyright",
+        "type": "text",
+        "default_value": "Copyright © 2025 Bản quyền thuộc về Công ty TNHH MTV Bảo Hiểm Bảo Việt."
+      },
+      {
+        "key": "field_65ab456789abf",
+        "label": "Fixed Tool",
+        "name": "",
+        "type": "tab",
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_tool_phone",
+        "label": "Tool Phone",
+        "name": "tool_phone",
+        "type": "text",
+        "default_value": "1900 2273 – (028) 7100 0001"
+      },
+      {
+        "key": "field_footer_fixed_socials",
+        "label": "Fixed Social Icons",
+        "name": "footer_fixed_socials",
+        "type": "repeater",
+        "layout": "table",
+        "button_label": "Thêm Icon",
+        "sub_fields": [
+          {
+            "key": "field_fixed_icon_select",
+            "label": "Icon",
+            "name": "icon",
+            "type": "select",
+            "choices": {
+              "fa-phone": "Phone",
+              "fa-message-dots": "Message",
+              "fa-facebook-messenger": "Messenger",
+              "fa-envelope": "Email",
+              "fa-location-dot": "Location"
+            },
+            "return_format": "value"
+          },
+          {
+            "key": "field_fixed_content",
+            "label": "Content",
+            "name": "content",
+            "type": "text"
+          },
+          {
+             "key": "field_fixed_link",
+             "label": "Link",
+             "name": "link",
+             "type": "link"
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "theme-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

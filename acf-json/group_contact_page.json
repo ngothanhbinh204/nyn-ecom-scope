@@ -1,0 +1,219 @@
+{
+    "key": "group_contact_page",
+    "title": "Contact Page Settings",
+    "fields": [
+        {
+            "key": "field_contact_page_title",
+            "label": "Page Title",
+            "name": "page_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Tiêu đề chính của trang (VD: KẾT NỐI SINGAPORE)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "KẾT NỐI SINGAPORE",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_list",
+            "label": "Contact Information List",
+            "name": "contact_list",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Danh sách thông tin liên hệ (địa chỉ, điện thoại, email, v.v.)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "button_label": "Add Contact Item",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_contact_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Chọn icon hiển thị",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "location-dot": "Location (Địa chỉ)",
+                        "phone": "Phone (Điện thoại)",
+                        "envelope": "Email",
+                        "clock": "Clock (Giờ làm việc)",
+                        "building": "Building (Tòa nhà)",
+                        "globe": "Globe (Website)",
+                        "fax": "Fax"
+                    },
+                    "default_value": "location-dot",
+                    "allow_null": 0,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_contact_list"
+                },
+                {
+                    "key": "field_contact_title",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Tiêu đề mục (VD: ĐỊA CHỈ VĂN PHÒNG)",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_contact_list"
+                },
+                {
+                    "key": "field_contact_content",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Nội dung chi tiết",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_contact_list"
+                },
+                {
+                    "key": "field_contact_link",
+                    "label": "Link (Optional)",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Link liên kết (optional, VD: link Google Maps)",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_contact_list"
+                }
+            ]
+        },
+        {
+            "key": "field_google_map",
+            "label": "Google Map Embed URL",
+            "name": "google_map",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Nhập URL embed từ Google Maps (src của iframe)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "https:\/\/www.google.com\/maps\/embed?pb=...",
+            "default_value": ""
+        },
+        {
+            "key": "field_contact_form_intro",
+            "label": "Contact Form Introduction",
+            "name": "contact_form_intro",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Văn bản giới thiệu phía trên form liên hệ",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Mọi sự hợp tác tốt đẹp đều bắt đầu từ một cuộc trò chuyện. Hãy liên hệ với chúng tôi, mọi mong muốn của bạn <span class=\"text-Primary-Primary_01\">sẽ được lắng nghe.<\/span>",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_contact_form_shortcode",
+            "label": "Contact Form 7 Shortcode",
+            "name": "contact_form_shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Nhập shortcode của Contact Form 7 (VD: [contact-form-7 id=\"123\" title=\"Contact form\"])",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "[contact-form-7 id=\"123\" title=\"Contact form\"]",
+            "default_value": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-woocommerce\/page-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1770264160
+}

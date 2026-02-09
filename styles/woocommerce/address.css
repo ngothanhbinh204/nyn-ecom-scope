@@ -1,0 +1,86 @@
+/* WooCommerce Address Book and Address Management */
+
+/* Book Address */
+.woocommerce-edit-address .address_book {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.woocommerce-edit-address .address_book .add-new-address {
+    padding-left: 0;
+    display: flex;
+    float: none;
+}
+
+.woocommerce-edit-address .address_book .wc-address-book-add-billing-button:hover {
+    color: var(--color-secondary) !important;
+}
+
+.woocommerce-edit-address .address_book .wc-address-book-add-billing-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: white !important;
+    padding: 7px 30px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.woocommerce-edit-address .address_book .addresses {
+    display: grid;
+    gap: 0.52rem;
+    margin-top: 0.52rem;
+}
+
+@media (min-width: 768px) {
+    .woocommerce-edit-address .address_book .addresses {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address.default {
+    border: 1px solid var(--color-primary);
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address {
+    padding: 0.5208333333rem;
+    border: 1px solid var(--color-gray-f1);
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address .name-address-book span::before {
+    content: "- ";
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address .wc-address-book-meta .wc-address-book-delete {
+    color: var(--color-invalid);
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address .wc-address-book-meta {
+    float: none;
+    display: flex;
+    align-items: center;
+    gap: 0.52rem;
+    font-size: 0.833333rem;
+    margin-top: 0.52rem;
+}
+
+.woocommerce-edit-address .address_book .addresses .wc-address-book-address .name-address-book span {
+    font-weight: 700;
+    display: inline-block;
+    color: var(--color-primary);
+}
+
+.woocommerce-edit-address .woocommerce-Address {
+    display: none;
+}
+
+.woocommerce-edit-address .wc-address-book-edit {
+    /* display: none; */
+}
+
+#add-new-address {
+    width: fit-content;
+}

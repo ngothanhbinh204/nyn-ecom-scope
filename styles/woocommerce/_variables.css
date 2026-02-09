@@ -1,0 +1,107 @@
+/* WooCommerce CSS Variables and Global Styles */
+:root {
+    --color-primary: #b72126;
+    --color-secondary: white;
+    --color-tertiary: #f8f8f8;
+    --color-valid: #46b450;
+    --color-invalid: #e2401c;
+    --color-gray-f1: #f1f1f1;
+    --color-gray-e5: #e5e5e5;
+}
+
+/* Global WooCommerce Styles */
+.single-product .woocommerce-notices-wrapper,
+.tax-product_cat .woocommerce-notices-wrapper {
+    display: none;
+}
+
+.section-padding {
+    padding: 2.0833333333rem 0;
+}
+
+.single_add_to_cart_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.section-product-detail .stock.in-stock {
+    display: none;
+}
+
+.section-product-detail .variations_form.cart .woocommerce-variation-add-to-cart-disabled .product-wrap-buy {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.woocommerce-variation-add-to-cart-disabled .buy_now_button {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.section-wrap-box-white {
+    background-color: #fff;
+    padding: 1.0416666667rem;
+}
+
+.woocommerce-page .title-line.mb-0 {
+    margin-bottom: 0;
+}
+
+.woocommerce-page .title-line {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+body .thwvsf-wrapper-ul .thwvsf-wrapper-item-li.deactive,
+body .thwvsf-wrapper-ul .thwvsf-wrapper-item-li.out_of_stock {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.woocommerce-variation-availability .out-of-stock {
+    display: none;
+}
+
+.woocommerce::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.woocommerce-error {
+    color: var(--color-invalid);
+}
+
+.woocommerce-notices-wrapper {
+    outline: none !important;
+    border-color: transparent !important;
+}
+
+.woocommerce-notices-wrapper .woocommerce-error {
+    outline: none !important;
+    border-color: transparent !important;
+}
+
+.woocommerce-notices-wrapper .woocommerce-error li {
+    outline: none !important;
+    border-color: transparent !important;
+}
+
+body div.jGrowl {
+    z-index: 99 !important;
+}
+
+.woocommerce-privacy-policy-text {
+    display: none;
+}
+
+label[for="payment_method_onepay"] > img {
+    display: none;
+}
+
+.th-sr-only {
+    display: none !important;
+}
