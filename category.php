@@ -14,7 +14,7 @@
 				?>
 			</div>
 		</div>
-<section class="news xl:py-24 py-10">
+<section class="news section-py">
 	<div class="container">
 
 		<div class="wrap-heading flex flex-col justify-center text-center">

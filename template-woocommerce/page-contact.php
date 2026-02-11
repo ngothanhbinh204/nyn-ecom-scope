@@ -31,7 +31,7 @@ $contact_form_shortcode = get_field('contact_form_shortcode');
             <!-- Left Column: Contact Information -->
             <div class="col-left lg:rem:w-[480px] w-full">
                 <?php if ($page_title): ?>
-                    <h2 class="heading-1 text-Primary-2 mb-6 uppercase"><?php echo esc_html($page_title); ?></h2>
+                    <h2 class="heading-1 text-Primary-1 mb-6 uppercase"><?php echo esc_html($page_title); ?></h2>
                 <?php endif; ?>
                 
                 <div class="contact-box">

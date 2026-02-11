@@ -148,6 +148,8 @@
 .woocommerce-account .woocommerce-MyAccount-navigation ul {
     display: flex;
     flex-direction: column;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
@@ -209,6 +211,10 @@
 .woocommerce-account .woocommerce-MyAccount-content .link-account {
     text-decoration: none;
     cursor: pointer;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content .link-account:hover {
+    text-decoration: underline;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content .box-title {
@@ -281,7 +287,7 @@
     }
 }
 
-.woocommerce-account .woocommerce-MyAccount-content .woocommerce-EditAccountForm > p:last-child {
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-EditAccountForm>p:last-child {
     grid-column: span 2 / span 2;
 }
 
@@ -365,8 +371,8 @@
     text-decoration: none !important;
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     .container.wrap-grid-account {
         padding: 4.1666666667rem;
     }
-}
+} */

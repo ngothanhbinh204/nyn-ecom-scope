@@ -25,7 +25,7 @@
 					$categories = get_the_category();
 					if (!empty($categories)) : 
 					?>
-					<div class="news-item-category text-Primary-2 font-bold"><?php echo esc_html($categories[0]->name); ?></div>
+					<div class="news-item-category text-Primary-1 font-bold"><?php echo esc_html($categories[0]->name); ?></div>
 					<?php endif; ?>
 					<div class="line rem:h-[1px] flex-1 bg-Utility-Black"></div>
 				</div>

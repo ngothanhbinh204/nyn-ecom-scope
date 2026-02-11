@@ -46,8 +46,8 @@ if (!defined('ABSPATH')) {
 		?>
 		<?php do_action('woocommerce_checkout_before_order_review'); ?>
 		<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-			<div class="row">
-				<div class="col lg:w-8/12">
+			<div class="wrapper">
+				<div class="col-left lg:w-8/12">
 					<div class="wrap-form-checkout section-wrap-box-white p-7.5">
 						<div class="title-line">
 							<?php _e('Thông tin giao hàng', 'canhcamtheme') ?>
@@ -71,7 +71,7 @@ if (!defined('ABSPATH')) {
 						<?php do_action('custom_button_checkout') ?>
 					</div>
 				</div>
-				<div class="col lg:w-4/12">
+				<div class="col-right lg:w-4/12">
 					<div class="section-wrap-box-white p-7.5 mb-5">
 						<div class="title-line mb-0">
 							<?php _e('Đơn hàng của bạn', 'canhcamtheme') ?>
@@ -100,7 +100,7 @@ if (!defined('ABSPATH')) {
 
 						<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 					</div>
-					<div class="section-wrap-box-white p-7.5 mt-5 box-coupon">
+					<div class="wrap-footer p-7.5 mt-5 box-coupon">
 						<div class="title-line">
 							<?php _e('Mã giảm giá', 'canhcamtheme') ?>
 						</div>

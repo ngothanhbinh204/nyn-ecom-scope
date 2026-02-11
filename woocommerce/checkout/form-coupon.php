@@ -32,10 +32,10 @@ if (!wc_coupons_enabled()) { // @codingStandardsIgnoreLine.
 	</p>
 	<div class="wrap-form-coupon">
 		<p class="w-full flex-1">
-			<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" id="coupon_code" value="" />
+			<input type="text" name="coupon_code" class="input-text btn" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" id="coupon_code" value="" />
 		</p>
-		<p>
-			<button type="button" class="button ajax-apply-coupon<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>"><?php esc_html_e('Áp dụng', 'canhcamtheme'); ?></button>
+		<p class="mt-3">
+			<button type="button" class="button ajax-apply-coupon btn btn-primary<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>"><?php esc_html_e('Áp dụng', 'canhcamtheme'); ?></button>
 		</p>
 	</div>
 

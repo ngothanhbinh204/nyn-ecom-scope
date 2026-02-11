@@ -2,7 +2,7 @@
 
 <section class="search-page section-py section-product-list" setbackground="/wp-content/themes/forestBay/img/TinTuc/news-bg.jpg">
 	<div class="container max-w-screen-2xl">
-		<div class="title-48 mb-base text-center"><?= _e('Tìm kiếm', 'canhcamtheme') ?></div>
+		<div class="heading-1 mb-base text-center"><?= _e('Tìm kiếm', 'canhcamtheme') ?></div>
 		<div class="search-query mb-5"><?= _e('Kết quả tìm kiếm từ khóa:', 'canhcamtheme') ?> " <strong><?= get_search_query() ?></strong> "</div>
 		<div class="wrap mb-base">
 			<?php
@@ -47,7 +47,7 @@
 		?>
 				<div class="item-category-primary relative">
 					<div class="img zoom-img">
-						<a class="img img-ratio ratio:pt-[400_600]" href="<?php the_permalink(); ?>">
+						<a class="img img-ratio ratio:pt-[320_440]" href="<?php the_permalink(); ?>">
 							<?= get_image_post(get_the_ID()) ?>
 						</a>
 					</div>
