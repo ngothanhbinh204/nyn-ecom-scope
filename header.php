@@ -99,30 +99,13 @@
                                 <i class="fa-light fa-magnifying-glass"></i>
                             </div>
                             <!-- Language Switcher PlaceHolder or WPML -->
-                            <div class="header-language">
-                                <div class="header-language-active">
-                                    <ul>
-                                        <li class="wpml-ls-current-language"><a href=""> <span class="wpml-ls-native">VN</span></a></li>
-                                        <ul>
-                                            <li> <a href=""> <span>EN</span></a></li>
-                                        </ul>
-                                    </ul>
-                                </div>
-                                <div class="header-language-list">
-                                    <ul>
-                                        <li class="wpml-ls-current-language"><a href=""> <span class="wpml-ls-native">VN</span></a></li>
-                                        <ul>
-                                            <li> <a href=""> <span>EN</span></a></li>
-                                        </ul>
-                                    </ul>
-                                </div>
-                            </div>
+                           <?php echo do_shortcode('[header_language]'); ?>
 
                             <div class="header-user"> 
                                 <a href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"><i class="fa-light fa-user"></i></a>
                             </div>
                             <div class="header-cart"> 
-                                <a href="<?php echo wc_get_cart_url(); ?>">
+                                <a  class="open-cart">
                                     <i class="fa-light fa-bag-shopping"></i>
                                     <!-- Dynamic Cart Count -->
                                     <?php if (WC()->cart->get_cart_contents_count() > 0) : ?>
@@ -158,6 +141,21 @@
             </div>
         </div>
     </div>
+
+    <div class="mini-cart-wrapper">
+            <div class="top-mini-cart">
+            <p>Giỏ hàng</p>
+            <button class="close" aria-label="Đóng" fdprocessedid="a57ydq"><i class="fa-light fa-xmark"></i></button>
+            </div>
+            <div class="widget_shopping_cart_content">
+
+            <?php woocommerce_mini_cart(); ?>
+
+
+        </div>
+  </div>
+
+
 
     
 

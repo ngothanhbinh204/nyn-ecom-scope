@@ -23,7 +23,7 @@ if (!wc_coupons_enabled()) { // @codingStandardsIgnoreLine.
 }
 
 ?>
-<form class="checkout_coupon woocommerce-form-coupon ajax-coupon-form" method="post" style="display:none">
+<form class="checkout_coupon woocommerce-form-coupon ajax-coupon-form" method="post">
 
 	<!-- <p><?php esc_html_e('If you have a coupon code, please apply it below.', 'woocommerce'); ?></p> -->
 

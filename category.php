@@ -45,7 +45,7 @@
 					<li class="nav-item">
 						<a href="<?php echo esc_url(get_category_link($parent_term->term_id)); ?>"
 						class="nav-link <?php echo ($current_term->term_id == $parent_term->term_id) ? 'active' : ''; ?>">
-							<?php esc_html_e('ALL', 'canhcamtheme-woo'); ?>
+							<?php _e('Tất cả', 'canhcamtheme-woo'); ?>
 						</a>
 					</li>
 				<?php endif; ?>

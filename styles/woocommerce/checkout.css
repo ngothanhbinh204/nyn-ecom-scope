@@ -110,7 +110,7 @@ button[type="submit"].woocommerce-Button {
 .woocommerce-checkout p.form-row.invalid span.error,
 .woocommerce-checkout p.form-row.woocommerce-invalid span.error {
     color: #e2401c;
-    display: block !important;
+    display: block ;
     font-size: 0.8333rem;
     margin-top: 0.2604166667rem;
 }

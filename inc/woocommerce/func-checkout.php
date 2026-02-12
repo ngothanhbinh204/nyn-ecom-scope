@@ -182,13 +182,6 @@ function devvn_bank_details($order_id = '')
 			$domain = get_site_url();
 		?>
 			<tr>
-				<td style="width: 200px;border: 1px solid #eaeaea;padding: 6px 10px;">
-					<?php
-					$order = wc_get_order($order_id);
-					$total = $order->get_total();
-					?>
-					<img style="width: 100%;" src="https://img.vietqr.io/image/OCB-0017100028815008-qr_only.png?amount=<?php echo $total; ?>&addInfo=<?php echo sprintf('W%s', $order_id); ?>" alt="">
-				</td>
 				<td style="border: 1px solid #eaeaea;padding: 6px 10px;">
 					<strong><?= _e('STK', 'canhcamtheme') ?>:</strong> <?php echo $stk; ?><br>
 					<strong><?= _e('Chủ tài khoản', 'canhcamtheme') ?>:</strong> <?php echo $account_name; ?><br>
@@ -208,8 +201,8 @@ function devvn_bank_details($order_id = '')
  */
 
 
-add_action('woocommerce_email_before_order_table', 'devvn_woocommerce_email_before_order_table', 5);
-add_action('woocommerce_thankyou_bacs', 'devvn_woocommerce_email_before_order_table', 5);
+// add_action('woocommerce_email_before_order_table', 'devvn_woocommerce_email_before_order_table', 5);
+// add_action('woocommerce_thankyou_bacs', 'devvn_woocommerce_email_before_order_table', 5);
 
 
 /**

@@ -34,6 +34,9 @@ $main_image_classes  = 'img-ratio ratio:pt-[727_918]';
 $thumb_image_classes = 'img-ratio';
 
 
+$product_faqs_title = get_field('product_faqs_title') ?: '';
+$product_faqs_desc = get_field('product_faqs_desc') ?: '';
+
 $list_benefits_product = get_field('list_benefits_product');
 $grid_content = get_field('grid_content');
 /**
@@ -368,8 +371,12 @@ $product_faqs = get_field('product_faqs');
 <div class="section-faq relative section-py">
 	<div class="container">
 		<div class="wrap-heading mb-base">
-			<h2 class="title heading-1 font-extrabold">Câu hỏi thường gặp (FAQ)</h2>
-			<div class="sub-title body-2 font-light font-secondary">Câu trả lời cho mọi thắc mắc về chăm sóc sắc đẹp.</div>
+			<h2 class="title heading-1 font-extrabold">
+				<?php echo wp_kses_post($product_faqs_title); ?>
+			</h2>
+			<div class="sub-title body-2 font-light font-secondary">
+				<?php echo wp_kses_post($product_faqs_desc); ?>
+			</div>
 		</div>
 		<div class="wrap-item-toggle flex flex-col gap-6" data-faq-list>
 			<?php foreach($product_faqs as $faq): ?>
@@ -388,7 +395,9 @@ $product_faqs = get_field('product_faqs');
 		</div>
 		<?php if(count($product_faqs) > 5): ?>
 		<div class="button-load-more-faq mt-base" data-load-more-faq>
-			<button class="flex items-center gap-2"> <span class="font-secondary font-light body-1">Xem thêm</span>
+			<button class="flex items-center gap-2"> <span class="font-secondary font-light body-1">
+				<?php _e('Xem thêm', 'canhcamtheme-woo'); ?>
+			</span>
 				<div class="icon body-2 font-light"><i class="fa-light fa-chevron-down"></i></div>
 			</button>
 		</div>

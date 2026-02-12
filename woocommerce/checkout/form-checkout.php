@@ -105,7 +105,9 @@ if (!defined('ABSPATH')) {
 							<?php _e('Mã giảm giá', 'canhcamtheme') ?>
 						</div>
 						<div class="coupon-form-container">
-							<?php do_action('woocommerce_checkout_coupon_form'); ?>
+							<div class="wrap-form-coupon ajax-coupon-form">
+								<?php do_action('woocommerce_checkout_coupon_form'); ?>
+							</div>
 						</div>
 					</div>
 				</div>

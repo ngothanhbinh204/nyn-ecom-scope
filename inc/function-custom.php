@@ -940,4 +940,99 @@ function cf7_modify_first_select_option($html)
 
 add_filter('wpcf7_form_elements', 'cf7_modify_first_select_option');
 
+
+/**
+ * Shortcode hiển thị language switcher theo cấu trúc custom
+ * Usage: [header_language]
+ */
+function theme_wpml_header_language_shortcode()
+{
+
+    // WPML chưa active → không hiển thị
+    if (!function_exists('icl_get_languages')) {
+        return '';
+    }
+
+    $languages = icl_get_languages('skip_missing=0&orderby=code');
+
+    if (empty($languages)) {
+        return '';
+    }
+
+    $current_lang = null;
+    $other_langs  = array();
+
+    foreach ( $languages as $lang ) {
+        if ( $lang['active'] ) {
+            $current_lang = $lang;
+        } else {
+            $other_langs[] = $lang;
+        }
+    }
+
+    if ( empty( $current_lang ) ) {
+        return '';
+    }
+
+    ob_start();
+    ?>
+    <div class="header-language">
+
+        <!-- Active (hiển thị trên header) -->
+        <div class="header-language-active">
+            <ul>
+                <li class="wpml-ls-current-language">
+                    <a href="<?php echo esc_url( $current_lang['url'] ); ?>">
+                        <span class="wpml-ls-native">
+                            <?php echo esc_html( strtoupper( $current_lang['language_code'] ) ); ?>
+                        </span>
+                    </a>
+                </li>
+
+                <?php if ( ! empty( $other_langs ) ) : ?>
+                    <ul>
+                        <?php foreach ( $other_langs as $lang ) : ?>
+                            <li>
+                                <a href="<?php echo esc_url( $lang['url'] ); ?>">
+                                    <span><?php echo esc_html( strtoupper( $lang['language_code'] ) ); ?></span>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </ul>
+        </div>
+
+        <!-- Dropdown list -->
+        <div class="header-language-list">
+            <ul>
+                <li class="wpml-ls-current-language">
+                    <a href="<?php echo esc_url( $current_lang['url'] ); ?>">
+                        <span class="wpml-ls-native">
+                            <?php echo esc_html( strtoupper( $current_lang['language_code'] ) ); ?>
+                        </span>
+                    </a>
+                </li>
+
+                <?php if ( ! empty( $other_langs ) ) : ?>
+                    <ul>
+                        <?php foreach ( $other_langs as $lang ) : ?>
+                            <li>
+                                <a href="<?php echo esc_url( $lang['url'] ); ?>">
+                                    <span><?php echo esc_html( strtoupper( $lang['language_code'] ) ); ?></span>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+            </ul>
+        </div>
+
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'header_language', 'theme_wpml_header_language_shortcode' );
+
+
 ?>

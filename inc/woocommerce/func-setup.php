@@ -58,6 +58,7 @@ function cc_woocommerce_scripts()
 		'cancel_order_success' => __('Hủy đơn hàng thành công', 'canhcamtheme'),
 		'cancel_order_error' => __('Hủy đơn hàng thất bại', 'canhcamtheme'),
 		'no_result' => __('No products found', 'woocommerce'),
+		'checkout_url' => wc_get_checkout_url(), // URL trang thanh toán
 	));
 	wp_register_style('woocommerce-css', get_template_directory_uri() . '/styles/woocommerce/index.css', array(), GENERATE_VERSION, 'all');
 	wp_enqueue_style('woocommerce-css');
@@ -198,8 +199,9 @@ function misha_remove_my_account_links($menu_links)
 
 function woo_add_buy_now_button()
 {
+	global $product;
 ?>
-	<button type="button" class="product-buy-now btn btn-primary solid flex-center lowercase w-full buy_now_button">
+	<button type="button" value="<?php echo $product ? $product->get_id() : ''; ?>" class="product-buy-now btn btn-primary solid flex-center lowercase w-full buy_now_button">
 		<span><?= __('Buy now', 'woocommerce') ?></span>
 		<!-- <i class="fa-regular fa-paper-plane-top"></i> -->
 	</button>
@@ -275,12 +277,50 @@ function woo_add_buy_now_button()
 			// Custom buy now button
 			$("body").on("click", ".buy_now_button", function(e) {
 				e.preventDefault();
-				if ($(this).hasClass('disable')) {
-					return false;
-				}
-				$(this).addClass('disable loading');
-				$('.single_add_to_cart_button').addClass('buynow')
-				$('.single_add_to_cart_button').trigger('click');
+				var $thisbutton = $(this);
+				if ($thisbutton.hasClass('disable')) return false;
+
+				var $form = $thisbutton.closest('form.cart'),
+					id = $thisbutton.val() || $form.find('[name="add-to-cart"]').val(),
+					product_qty = $form.find('input[name=quantity]').val() || 1,
+					variation_id = $form.find('input[name=variation_id]').val() || 0,
+					product_id = $form.find('input[name=product_id]').val() || id;
+
+				var data = {
+					action: 'woocommerce_ajax_add_to_cart',
+					product_id: product_id,
+					product_sku: '',
+					variation_id: variation_id,
+					quantity: product_qty,
+				};
+
+				$.ajax({
+					type: 'post',
+					url: cc_woocommerce_params.ajax_url,
+					data: data,
+					beforeSend: function(response) {
+						$thisbutton.addClass('disable loading');
+						$('.loading-bar').css({
+							'width': '40%',
+							'opacity': '1'
+						});
+					},
+					complete: function(response) {
+						$thisbutton.removeClass('disable loading');
+						$('.loading-bar').css({
+							'width': '100%',
+							'opacity': '1'
+						});
+					},
+					success: function(response) {
+						if (response.error) {
+							alert(response.message);
+							return;
+						}
+						// Chuyển hướng đến trang thanh toán
+						window.location.href = cc_woocommerce_params.checkout_url;
+					},
+				});
 			});
 		});
 	</script>

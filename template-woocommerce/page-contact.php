@@ -40,8 +40,7 @@ $contact_form_shortcode = get_field('contact_form_shortcode');
                             <?php foreach ($contact_list as $item): 
                                 $icon = $item['icon'];
                                 $title = $item['title'];
-                                $content = $item['content'];
-                                $link = $item['link'];
+                                $content_link = $item['content_link'];
                             ?>
                                 <div class="contact-item">
                                     <span class="text-lg text-Utility-Black">
@@ -54,10 +53,8 @@ $contact_form_shortcode = get_field('contact_form_shortcode');
                                             </div>
                                         <?php endif; ?>
                                         <div class="bottom font-normal text-Neutral-500">
-                                            <?php if ($link): ?>
-                                                <a href="<?php echo esc_url($link); ?>"><?php echo wp_kses_post($content); ?></a>
-                                            <?php else: ?>
-                                                <?php echo wp_kses_post($content); ?>
+                                            <?php if ($content_link): ?>
+                                                <a href="<?php echo esc_url($content_link['url']); ?>"><?php echo wp_kses_post($content_link['title']); ?></a>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -71,15 +68,7 @@ $contact_form_shortcode = get_field('contact_form_shortcode');
                         if ($google_map): 
                         ?>
                             <div class="map">
-                                <iframe 
-                                    src="<?php echo esc_url($google_map); ?>"
-                                    width="800" 
-                                    height="600" 
-                                    style="border:0;" 
-                                    allowfullscreen 
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                              <?php echo $google_map; ?>
                             </div>
                         <?php endif; ?>
                     </div>
